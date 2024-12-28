@@ -172,14 +172,14 @@ def parse_config_file(cfgfile):
         ## Remove spaces, empty lines, etc.
         line = line.strip("\n")
         line = re.sub('\t', ' ', line)
-        line = re.sub('\s+', ' ', line)
+        line = re.sub(r'\s+', ' ', line)
         line = re.sub(' *$', '', line)
         line = re.sub('//.*', '', line)
         line = line.lstrip()
-        if re.search("^\s*//", line):
+        if re.search(r"^\s*//", line):
             continue
 
-        if re.search("^\s*$", line):
+        if re.search(r"^\s*$", line):
             continue
 
         if (global_struct.g_CFG_DEBUG):
